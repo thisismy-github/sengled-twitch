@@ -129,3 +129,6 @@ dmypy.json
 .pyre/
 
 ignore/
+cfg.py
+COPY_CONFIGPARSEBETTER.py
+sengled_twitch - Copy.ini

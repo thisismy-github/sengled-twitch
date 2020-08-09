@@ -1,15 +1,22 @@
 # Sengled Twitch Client
-Simple python client for controlling Sengled devices through Twitch alerts and channel rewards.
-Right now this is personalized for a specific channel, so you will need to replace the custom reward IDs and may need to adjust the follower alert. In the mean time, this can be used as a sort of template to work off of.
+A Python client for controlling Sengled devices through Twitch alerts and channel rewards.
+Designed to be fairly customizable with minimal effort. Includes a config file that can be updated in real-time, as well as 5 premade light effects, ranging from simple static lights to various fading/strobe effects.
 
-Whether this will be developed into a GUI client, a Python library, or both, I'm not sure yet.
+You must supply the OAUTH token and Client ID, as well as your Sengled login information. You must also supply the channel reward IDs. In a future update, I'll add an easy way to do this, but for right now, you'll have to modify the on_pubmsg code to print out the "channel-reward-id" key in the "tags" dictionary.
 
-You must supply the OAUTH token and Client ID, as well as your Sengled login information.
+To add a channel reward, open your config file and scroll down to the [REWARDS] section. In here, paste the channel reward ID, then an "=", then the keyword for the light effect you want that reward to use.
+
+Example:
+    cc3f2f61-5960-452a-b22f-57d81b9b7629 = fade
+
+Default Keywords:
+    static - Simple static light.
+    fade - Simple fading light. Fades in, then fades out, on loop.
+    fadeonebyone - Like above, but fades each light one by one.
+    colorfade - Like fade, but fades into a new color with each loop.
+    blink (todo) - Causes lights to blink on and off, on loop.
 
 TODO:
+- Add utility for getting channel reward IDs
 - Add GUI interface
-- Simplify request handler
-- Add more cusomization options for requests
 - Add logging
-- Add subscriber alert
-- Add more universal follower alert
